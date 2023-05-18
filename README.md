@@ -1,6 +1,7 @@
 # ffodle
 ffodle is a very minimal UI wrapper for yt-dlp.
-If you find any bugs, please use the "issues" tab to report them.
+As this is my first C# app, expect some bugs.
+If you do find any bugs, please use the "issues" tab to report them.
 
 CTRL+SHIFT+Z to download url from your clipboard
 CTRL+SHIFT+X to cancel current download
