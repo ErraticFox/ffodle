@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows10.0.22621.0</TargetFramework>
+    <PlatformName>windows</PlatformName>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>False</UseWindowsForms>
+    <ApplicationIcon>Resources\windows.ico</ApplicationIcon>
+    <StartupObject>ffodle.App</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\download.svg" />
+    <None Remove="windows.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\windows.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CliWrap" Version="3.6.1" />
+    <PackageReference Include="Material.Icons" Version="1.1.35" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.2.2" />
+    <PackageReference Include="Material.Icons.WPF" Version="1.2.0" />
+    <PackageReference Include="Microsoft-WindowsAPICodePack-Core" Version="1.1.4" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+    <PackageReference Include="SharpVectors.Wpf" Version="1.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\download.svg" />
+    <Resource Include="windows.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ffmpeg.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Resources\icomoon.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\windows.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="yt-dlp.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

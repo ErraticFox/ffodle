@@ -1,0 +1,69 @@
+﻿<Window x:Class="ffodle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        Title="MainWindow" 
+        Height="450" Width="800" 
+        ResizeMode="NoResize" 
+        Icon="/windows.ico" 
+        Background="Transparent" 
+        AllowsTransparency="True" 
+        WindowStyle="None"
+        xmlns:materialIcons="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF">
+
+    <Border CornerRadius="10" Background="#FF3A3A46">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="1" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Button Name="MinimizeBtn" Grid.Column="1" Content="🗕" Click="Minimize_Click" Foreground="LightGray" Style="{StaticResource minMaxBtn}"/>
+                <!-- <Button Grid.Column="1" BorderThickness="0" Padding="10" Content="🗖" Style="{StaticResource minMaxBtn}"/> -->
+                <Button Name="CloseBtn" Grid.Column="2" Content="✕" Click="Close_Click" Foreground="LightGray" Style="{StaticResource closeButton}" />
+            </Grid>
+
+            <Rectangle Name="DragBar" MouseDown="DragBar_MouseDown" Fill="#00000000" />
+
+            <TextBox x:Name="urlTextBox" Grid.Row="1" TextWrapping="Wrap" Style="{StaticResource urlBoxStyle}" />
+
+            <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+                <!--<Button Click="Open_Settings" x:Name="settingsButton" Style="{StaticResource UrlBarButtons}">
+                    <materialIcons:MaterialIcon Foreground="LightGray" Kind="Gear" />
+                </Button>-->
+                <Button Click="SetDownloadFolder" x:Name="folderButton" Style="{StaticResource UrlBarButtons}">
+                    <materialIcons:MaterialIcon Foreground="LightGray" Kind="Folder" />
+                </Button>
+                <Button Click="ButtonDownload" x:Name="downloadButton"  Style="{StaticResource UrlBarButtons}">
+                    <materialIcons:MaterialIcon Foreground="LightGray" Kind="Download" />
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="2" Margin="10, 0">
+                <Label Content="Output Stream" FontSize="16" Foreground="White" Margin="0,0,0,10"/>
+                <Border CornerRadius="3" Background="#FF484858">
+                    <ScrollViewer Height="250" MaxHeight="250"  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+                        <TextBox Text="{Binding Path=StreamText, Mode=OneWay}" TextChanged="TextBlockStream_TextChanged" TextWrapping="WrapWithOverflow" x:Name="textBlockStream" IsReadOnly="True" Foreground="White" Background="Transparent" BorderThickness="0" Padding="10" />
+                    </ScrollViewer>
+                </Border>
+                    <ProgressBar Margin="0,5,0,0" Value="{Binding Path=ProgressPercent, Mode=OneWay}" Style="{StaticResource progressBarStyle}" />
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>

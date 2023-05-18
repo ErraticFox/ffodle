@@ -1,0 +1,6 @@
+C:\Users\chase\Desktop\ffodle\ffodle.pdb
+C:\Users\chase\Desktop\ffodle\Resources\windows.ico
+C:\Users\chase\Desktop\ffodle\Resources\icomoon.ttf
+C:\Users\chase\Desktop\ffodle\yt-dlp.exe
+C:\Users\chase\Desktop\ffodle\ffodle.dll.config
+C:\Users\chase\Desktop\ffodle\ffodle.exe
